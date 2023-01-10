@@ -11,7 +11,7 @@ public class BasicArrayEtc2 {
         }
 
         String val1 = args[0];
-        String val2 = args[2];
+        String val2 = args[1];
         int num1 = Integer.parseInt(val1);//입력 받은 문자열을 정수로 변환
         int num2 = Integer.parseInt(val2);
 

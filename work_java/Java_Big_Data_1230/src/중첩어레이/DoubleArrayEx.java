@@ -17,7 +17,7 @@ public class DoubleArrayEx {
 for(int[] row : arr){
     for(int e: row)System.out.print(e + " ");
     System.out.println();
-    
+
        }
 
     }
