@@ -1,4 +1,4 @@
-package 객체직렬화예제1번;
+package 객체직렬화예제1;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -41,3 +41,4 @@ public class SerialStreamEx1 {
         return list;
     }
 }
+
