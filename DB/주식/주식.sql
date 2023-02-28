@@ -1,0 +1,193 @@
+CREATE TABLE USER_TABLE( 
+	USER_ID    VARCHAR2(20) PRIMARY KEY,
+	USER_PWD   VARCHAR2(20) NOT NULL,
+	NAME	     VARCHAR2(20) NOT NULL,
+	PH	       VARCHAR2(20),
+  MONEY      NUMBER DEFAULT 1000000 NOT NULL
+);
+CREATE TABLE WALLETS(
+	USER_ID        VARCHAR2(20) REFERENCES USER_TABLE ( USER_ID ),
+  COSPI_ID       VARCHAR2(20) REFERENCES INFO_COSPI( COSPI_ID ),	
+	FIGURE         NUMBER NOT NULL,
+	TOTAL_PRICE    NUMBER NOT NULL,
+	BUY_DATE       DATE 
+);	
+
+CREATE TABLE INFO_COSPI(
+	COSPI_ID      VARCHAR2(20) PRIMARY KEY,	
+	COSPI_PRICE   NUMBER,
+	GROWTH_F      NUMBER(5,2), --성장률
+	GROWTH_I      NUMBER --성장률에따른 가격변화
+);	
+
+CREATE TABLE BOARD(
+	 COSPI_ID      VARCHAR2(20) REFERENCES INFO_COSPI( COSPI_ID ),
+	 USER_ID       VARCHAR2(20) REFERENCES USER_TABLE( USER_ID ),
+	 WRITE_NUM     NUMBER(3) PRIMARY KEY, --게시글 고유번호
+	 TITLE         VARCHAR2(200) NOT NULL, --게시글이름
+	 CONTENT       VARCHAR2(1000) NOT NULL --게시글 내용
+);
+
+CREATE TABLE COMMENTS(
+	USER_ID         VARCHAR2(20) REFERENCES USER_TABLE( USER_ID ), --누가쓴건지
+	WRITE_NUM       NUMBER(3) REFERENCES BOARD(WRITE_NUM), --어떤글에 쓴건지
+  COMMENTS_LETTER VARCHAR2(200) NOT NULL, --댓글내용
+	COMMENTS_NUM    NUMBER(3) PRIMARY KEY --댓글고유번호
+);
+
+-------------------------------------------------------------------------------------------------------
+
+--USER_TABLE INSERT문 *유저생성시
+INSERT INTO USER_TABLE VALUES('JM','1234','JM','010-1234-5678',1000000);
+INSERT INTO USER_TABLE VALUES('JJ','1111','JJ','010-1234-5678',1000000);
+INSERT INTO USER_TABLE VALUES('KH','1333','KH','010-1234-5678',1000000);
+
+--COSPI_INFO INSERT문 *주식넣는 기능구현한다면 이렇게넣으면됨
+INSERT INTO INFO_COSPI VALUES('삼성전자',63000,0,0,(SELECT NVL(MAX(COSPI_NUM),0) FROM INFO_COSPI) + 1);
+INSERT INTO INFO_COSPI VALUES('LG',84800,0,0);
+INSERT INTO INFO_COSPI VALUES('CJ CGV',17340,0,0);
+INSERT INTO INFO_COSPI VALUES('현대자동차',173900,0,0);
+INSERT INTO INFO_COSPI VALUES('SK',180400,0,0);
+INSERT INTO INFO_COSPI VALUES('두산',90400,0,0);
+INSERT INTO INFO_COSPI VALUES('대우조선해양',25950,0,0);
+INSERT INTO INFO_COSPI VALUES('KIA',75300,0,0);
+INSERT INTO INFO_COSPI VALUES('KT',30450,0,0);
+INSERT INTO INFO_COSPI VALUES('엔씨소프트',438500,0,0);
+INSERT INTO INFO_COSPI VALUES('SSG',206500,0,0);
+INSERT INTO INFO_COSPI VALUES('한화',27450,0,0);
+
+--WALLETS INSERT문 *유저가 주식을 구매하면 반드시 지갑에 이렇게 넣어줘야함
+INSERT INTO WALLETS VALUES('JM','두산',1,(SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = '두산') * 1,SYSDATE);
+INSERT INTO WALLETS VALUES('JM','삼성전자',3,(SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = '삼성전자') * 3,SYSDATE);
+INSERT INTO WALLETS VALUES('JM','LG',1,(SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = 'LG') * 1,SYSDATE);
+INSERT INTO WALLETS VALUES('JM','KIA',1,(SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = 'KIA') * 1,SYSDATE);
+
+--BOARD INSERT문 *각 주식에대한 종목토론 게시판에 글을 쓰면 이렇게넣으면됨
+INSERT INTO BOARD VALUES('삼성전자','JM',(SELECT NVL(MAX(WRITE_NUM),0) FROM BOARD) + 1,'삼성전자 이대로 ㄱㅊ?','삼성전자 10만가자');
+
+--COMMENTS INSERT문 *게시판에 쓰여져있는 글번호를 찾아서 거기 댓글을 달수있음.
+INSERT INTO COMMENTS VALUES('JJ',10,'삼성전자 이미 노답임',(SELECT NVL(MAX(COMMENTS_NUM),0) FROM COMMENTS) + 1);
+
+-------------------------------------------------------------------------------------------------------
+
+
+--중복확인
+SELECT USER_ID FROM USER_TABLE WHERE USER_ID = 'JM';
+--없을시 INSERT
+INSERT INTO USER_TABLE VALUES('JM','1234','JM','010-1234-5678');
+INSERT INTO USER_TABLE VALUES('JJ','1111','JJ','010-1234-5678');
+INSERT INTO USER_TABLE VALUES('KH','1333','KH','010-1234-5678');
+
+-------------------------------------------------------------------------------------------------------
+
+--현재 주식가격확인
+SELECT ROWNUM, INFO_COSPI.* FROM INFO_COSPI;
+
+--시간마다 스레드가 실행할 업데이트 QUERY
+--주식 가격이 바뀌고나면 지갑에 있는 주식들의 가격도 변동되야함
+UPDATE INFO_COSPI
+    SET COSPI_PRICE = (SELECT COSPI_PRICE * 1.1 FROM INFO_COSPI WHERE COSPI_ID = '삼성전자')
+    WHERE COSPI_ID = '삼성전자';
+
+UPDATE WALLETS
+		SET TOTAL_PRICE = (SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = '두산') * FIGURE
+		WHERE COSPI_ID = '두산';
+
+-------------------------------------------------------------------------------------------------------
+
+SELECT USER_ID,USER_PWD 
+FROM USER_TABLE
+WHERE USER_ID = 'JM' AND USER_PWD = '1234';
+
+-------------------------------------------------------------------------------------------------------
+
+SELECT * 
+FROM WALLETS
+WHERE USER_ID = 'JM';
+
+-------------------------------------------------------------------------------------------------------
+
+
+--구매할때 이미 구매한 주식인지 아닌지 확인 '두산','JM'에 관한 중복확인
+SELECT COSPI_ID
+FROM WALLETS
+WHERE USER_ID IN (SELECT USER_ID
+                    FROM WALLETS
+                    WHERE USER_ID = 'JM') AND COSPI_ID = '두산';
+--사려는주식이 보유금액과 같거나 더 적은지 확인
+SELECT COSPI_PRICE * 3
+    FROM INFO_COSPI
+    WHERE COSPI_ID = '두산';
+
+--아직 구매하지않은 주식이면
+INSERT INTO WALLETS VALUES('JM','두산',1,(SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = '두산') * 1,SYSDATE);
+
+--이미 구매한 주식이면
+UPDATE WALLETS
+    SET FIGURE = 4,TOTAL_PRICE = (SELECT COSPI_PRICE FROM INFO_COSPI WHERE COSPI_ID = '두산') * 4
+    WHERE COSPI_ID = '두산' AND USER_ID = 'JM';
+
+--------------------------------------------------------------------------------------------------------------
+
+
+--판매할때 보유하고 있는 주식인지 확인
+SELECT COSPI_ID
+FROM WALLETS
+WHERE USER_ID IN (SELECT USER_ID
+                    FROM WALLETS
+                    WHERE USER_ID = 'JM') AND COSPI_ID = '두산';
+
+--판매하려는 수량이 지금보유한 수량보다 작거나 같은지 확인
+SELECT FIGURE 
+    FROM WALLETS
+    WHERE USER_ID = 'JM' AND COSPI_ID = '두산';
+
+--판매하는 수량이 지금보유량보다 작을경우
+UPDATE WALLETS
+    SET FIGURE = 1
+    WHERE USER_ID = 'JM' AND COSPI_ID = '두산';
+
+--판매수량과 지금보유량이 같을경우
+DELETE FROM WALLETS
+	WHERE USER_ID = 'JM' AND COSPI_ID = '두산';
+
+
+--상위 5개 글만 보이게 하기
+SELECT * FROM BOARD
+WHERE WRITE_NUM > (SELECT COUNT(WRITE_NUM)-5
+                    FROM BOARD);
+
+--특정 사용자가 적은 글 검색
+SELECT * FROM BOARD
+WHERE USER_ID = 'JM';
+
+--특정 주식에 관련된 글 검색
+SELECT * FROM BOARD
+WHERE COSPI_ID = '삼성전자';
+
+--주식 게시글 쓰기
+INSERT INTO BOARD VALUES('삼성전자','JM',(SELECT NVL(MAX(WRITE_NUM),0) FROM BOARD) + 1,'삼성전자 이대로 ㄱㅊ?','삼성전자 10만가자');
+
+--자기 게시글 삭제(먼저 자기가쓴글 목록을 보여주고 몇번을 삭제할지 물어봄EX 2)
+SELECT * FROM BOARD
+WHERE USER_ID = 'JM';
+
+DELETE FROM BOARD
+WHERE WRITE_NUM = 2;
+
+--게시글에 댓글이 있으면 삭제가 안되니 만약 댓글이 있다면 관련게시글 댓글부터 삭제
+DELETE FROM COMMENTS
+WHERE WRITE_NUM = 2;
+
+DELETE FROM BOARD
+WHERE WRITE_NUM = 2;
+
+--댓글 달기
+INSERT INTO COMMENTS VALUES('JJ',10,'삼성전자 이미 노답임',(SELECT NVL(MAX(COMMENTS_NUM),0) FROM COMMENTS) + 1);
+
+--댓글 삭제(먼저 자기가쓴글 보여주고 몇번 삭제할지 물어봄
+SELECT * FROM COMMENTS
+WHERE USER_ID = 'JM';
+
+DELETE FROM COMMENTS
+WHERE COMMENTS_NUM = 3;
