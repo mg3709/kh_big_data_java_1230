@@ -1,6 +1,4 @@
-package util;
-
-import jdk.jshell.spi.ExecutionControlProvider;
+package com.kh.jdbc.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,7 +1,7 @@
 package com.kh.jdbc;
 
-import dao.EmpDAO;
-import vo.EmpVO;
+import com.kh.jdbc.dao.EmpDAO;
+import com.kh.jdbc.vo.EmpVO;
 
 import java.util.List;
 import java.util.Scanner;
@@ -24,7 +24,11 @@ public class jdbcMain {
                     dao.empInsert();
                     break;
                 case 3 :
+                    dao.empUpdate();
+                    break;
                 case 4 :
+                    dao.empDelete();
+                    break;
                 case 5 :
                     System.out.println("메뉴를 종료합니다");
                     return;
