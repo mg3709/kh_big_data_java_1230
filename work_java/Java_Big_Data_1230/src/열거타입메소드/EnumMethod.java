@@ -5,9 +5,9 @@ package 열거타입메소드;
 enum Rainbow {RED,ORANGE,YELLOW,GREEN,BLUE,INDIGO,VIOLET}
 public class EnumMethod {
     public static void main(String[] args){
-//        Rainbow[] arr = Rainbow.values();
-//        for(Rainbow e : arr)System.out.print(e + " ");
-//        Rainbow rb = Rainbow.valueOf("YELLOW");
-  //      System.out.print(rb);
+        Rainbow[] arr = Rainbow.values();
+        for(Rainbow e : arr)System.out.print(e + " ");
+        Rainbow rb = Rainbow.valueOf("YELLOW");
+        System.out.print(rb);
     }
 }

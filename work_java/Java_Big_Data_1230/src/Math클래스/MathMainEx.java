@@ -17,6 +17,7 @@ public class MathMainEx {
 //        System.out.println(Math.abs(10));
 //        System.out.println(Math.abs(-10));
 //        System.out.println(Math.abs(-3));
+
         //floor() : 소수점 이하를 무조건 날림
         //ceil() : 소수점 이하가 있으면 무조건 울림
         //round() : 반올림
@@ -35,7 +36,5 @@ public class MathMainEx {
         System.out.println(Math.min(11, 9.999));
 
         System.out.println(Math.pow(2, 5));//2 5제곱
-
-
     }
 }

@@ -11,7 +11,7 @@ import java.io.OutputStream;
 //ByteStream 의 취상위 추상클래스는 OutputStream 입니다.
 public class InOutStreamEx1 {
     public static void main(String[] args) throws IOException {
-        OutputStream os = new FileOutputStream("test.bin");
+        OutputStream os = new FileOutputStream("test.txt");
         byte[] arr = {10,20,30,40,50};
         os.write(arr,1,3);//문자 배열을 write 하기(배열 1 4개를 출력
 

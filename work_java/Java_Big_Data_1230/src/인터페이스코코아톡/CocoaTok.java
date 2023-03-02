@@ -12,5 +12,4 @@ public class CocoaTok {
     public void sendMsg(NetAdapter na){
         na.send(msg);
     }
-
 }

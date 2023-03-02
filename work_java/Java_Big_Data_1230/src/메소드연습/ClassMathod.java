@@ -21,7 +21,7 @@ public class ClassMathod {
 
         int rst2 = sample.sum(n1, n2);//sum()은 매개변수와 반환값이 있는 메소드
         System.out.println(rst2);
-        
+
         sample.say();//void 메소드 사용
 
         System.out.println(sample.sayStr());

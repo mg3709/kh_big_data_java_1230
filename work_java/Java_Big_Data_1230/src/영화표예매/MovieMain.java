@@ -23,7 +23,7 @@ public class MovieMain {
             if (selMenu == 1) ticket.setSeat();//좌석 예약하기에 대한 메소드 호출
             else {
 
-                System.out.println(ticket.totalAmount());//종료하기 선택 시 판매 금액 계산
+                System.out.println("판매금액 : " + ticket.totalAmount());//종료하기 선택 시 판매 금액 계산
                 break;//종료를 위해서 반복문 탈출
 
             }

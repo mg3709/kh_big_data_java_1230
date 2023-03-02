@@ -22,5 +22,14 @@ public class AssistStreamEx2 {
 
         dos.close();
         fos.close();
+
+        FileInputStream fis = new FileInputStream("기본타입보조스트림.bin");
+        DataInputStream dis = new DataInputStream(fis);
+
+        for(int i = 0; i < 3; i++){
+            String name = dis.readUTF();
+            double score = dis.readDouble();
+            int rank = dis.readInt();
+        }
     }
 }

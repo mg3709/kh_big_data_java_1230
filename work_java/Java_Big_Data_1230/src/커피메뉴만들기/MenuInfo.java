@@ -1,6 +1,6 @@
 package 커피메뉴만들기;
 
-public class MenuInfo {
+public class MenuInfo{
     String name;//메뉴명
     int price;//가격
     String group;//분류
