@@ -6,49 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test3</title>
     <style>
-        div{
-            margin-left: 50px;
+        /* border라인 기준으로 안쪽라인은 padding 바깥쪽라인은 margin */
+        .container{
+            width: 560px;
+            border: 1px solid black;
+            padding: 20px 40px;
         }
+        .detail{
+            margin: 4px 40px;
+        }
+        label{
+            display: inline-block;
+        }
+        
     </style>
 </head>
 <body>
-    <h1><b>프론트앤드 개발자 지원서</b></h1>
-    <br>
-       <p>HTML,CSS,Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p> 
-    <hr>
-    <p><b>개인정보</b></p>
-    <form action="">
-    <div>
-        <label for="name">이름</label>
-        <input type="text" id = "name" name = "name">
-        <br>
-        <label for="num">연락처</label>
-        <input type="tel" id = "num" name = "num">
+    <div class = "container">
+        <h1>프론트앤드 개발자 지원서</h1>
+        <p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다</p>
+        <hr>
+        <form action="#">
+            <h4>개인정보</h4>
+            <div class = "detail">
+                <label for="name">이름</label>
+                <input type="text" id = "name" name = "name" placeholder="공백 없이 입력하세요">
+            </div>
+            <div class = "detail">
+                <label for="tel">연락처</label>
+                <input type="tel" id = "tel" name = "tel">
+            </div>
+
+            <h4>지원분야</h4>
+            <div class = "detail">
+                <input type="radio" name = "field" id = "publish" value = "1">
+                <label for="publish">웹 퍼블리싱</label>
+            </div>
+            
+            <div class = "detail">
+                <input type="radio" name = "field" id = "front" value = "2">
+                <label for="front">웹 프론트앤드</label>
+            </div>
+
+            <div class = "detail">
+                <input type="radio" name = "field" id = "mobile" value = "3">
+                <label for="mobile">모바일 앱</label>
+            </div>
+
+            <h4>지원동기</h4>
+            <textarea name="desc" id="cols" cols="70" rows="5" placeholder="본사 지원 동기를 간략히 써주세요"></textarea>
+            
+            <button type = "submit">접수하기</button>
+            <button type = "reset">다시쓰기</button>
+        </form>
+
     </div>
-    </form>
-    <br>
-    <p><b>지원 분야</b></p>
-    <form action="">
-    <div>
-        <input type="radio" id = "webP" name = "webP">
-        <label for="webP">웹퍼블리싱</label>
-        <br>
-        <input type="radio" id = "webF" name = "webF">
-        <label for="webF">웹 프론트앤드</label>
-        <br>
-        <input type="radio" id = "mobile" name = "mobile">
-        <label for="mobile">모바일 앱</label>
-    </div>
-    </form>
-    <br>
-    <p><b>지원동기</b></p>
-    <form action="">
-    <div>
-        <textarea name="" id="" cols="110" rows="10"></textarea>
-        <br>
-        <input type="submit" value = "접수하기">
-        <input type="submit" value = "다시쓰기">
-    </div>
-    </form>
+    
 </body>
 </html>
