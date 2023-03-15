@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .red-box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* 트랜지션 실행 */
+            /* transition: all; */
+            /* 트랜지션 실행 시간 */
+            /* transition-duration: 2s; */
+            /* 트랜지션 지연 시간 */
+            /* transition-delay: 0.3s; */
+
+            /* function 한번에 적용하는 방법 */
+            transition: all, 2s, ease, 1s;
+            margin: 10px;
+        }
+        .red-box:hover{
+            background-color: blue;
+            width: 300px;
+        }
+        .red-box:nth-child(1){
+            transition-timing-function: linear;
+        }
+        .red-box:nth-child(2){
+            transition-timing-function: ease;
+        }
+        .red-box:nth-child(3){
+            transition-timing-function: ease-in;
+        }
+        .red-box:nth-child(4){
+            transition-timing-function: ease-out;
+        }
+        .red-box:nth-child(5){
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- 요소(element)의 속성(property)이 변경될때 부드럽게 변경되는 효과를 제공 -->
+    <div class="red-box">Linear</div>
+    <div class="red-box">ease</div>
+    <div class="red-box">ease-in</div>
+    <div class="red-box">ease-out</div>
+    <div class="red-box">ease-in-out</div>
+    
+</body>
+</html>

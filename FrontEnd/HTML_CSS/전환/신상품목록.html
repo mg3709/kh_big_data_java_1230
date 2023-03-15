@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>신상품목록</title>
+    <style>
+#container {
+    width: 1000px;
+    margin: 20px auto;
+}
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    float: left;
+    padding: 0px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+img {
+    margin: 0px;
+    padding: 0px;
+    z-index: 1;
+    float: left;
+}
+
+li .caption {
+    position: absolute;
+    left: -200px;
+    width: 300px;
+    height: 200px;
+    padding-top: 20px;
+    background-color: rgba(0, 0, 0, .6);
+    /* opacity : 화면에 보이지 않음(투명도를 조정하는 속성) */
+    opacity: 0;
+    transition: .8s .2s ease-in-out;
+    z-index: 10;
+}
+li:hover .caption {
+    opacity: 1;
+    transform: translateX(200px);
+}
+
+.caption h2, .caption p {
+    color: white;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="contatiner">
+        <h1>신상품 목록</h1>
+        <ul>
+            <li>
+                <img src="/images/prod1.jpg">
+                <div class="caption">
+                    <h2>상품1</h2>
+                    <p>상품1에 대한 설명 텍스트</p>
+                    <p>가격 : 12,500원</p>
+                </div>
+            </li>
+
+            <li>
+                <img src="/images/prod2.jpg">
+                <div class="caption">
+                    <h2>상품2</h2>
+                    <p>상품2에 대한 설명 텍스트</p>
+                    <p>가격 : 20,000원</p>
+                </div>
+            </li>
+
+            <li>
+                <img src="/images/prod3.jpg">
+                <div class="caption">
+                    <h2>상품3</h2>
+                    <p>상품3에 대한 설명 텍스트</p>
+                    <p>가격 : 45,500원</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
