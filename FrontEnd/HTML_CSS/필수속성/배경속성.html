@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1{
+            /* inline요소로 바꾸기  */
+            display: inline; 
+            background-color: bisque;
+            color: orange;
+            
+        }
+        .img{
+            width: 500px;
+            height: 240px; 
+            background-image: url('./images/coffee.jpg');
+            /* background-repeat : 요소의 배경 크기가 삽입하려는 이미지보다 크면 이미지를 자동으로 반복해서 채움 */
+            /* background-size : 속성으로 이미지 크기를 지정 */
+            /* background-position : 속성으로 삽입하려는 이미지의 위치지정 */
+            background-repeat: repeat-x;
+        }
+        .parents{
+            width: 320px;
+            height: 240px;
+            /* 흘러넘칠대 스크롤 */
+            overflow: scroll;
+        }
+        .child{
+            height: 2000px;
+            background-image: url('./images/Kakao_logo.jpg');
+             /* background-attachment : 요소에 삽입된 이미지를 스크롤 할 대, 이미지의 작동 방식을 결정 */
+            background-attachment: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class = "img">
+        <h1>이것은 제목입니다</h1>
+    </div>
+
+    <div class = "parents">
+        <div class = "child"></div>
+    </div>
+
+</body>
+</html>

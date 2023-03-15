@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index5</title>
+    <style>
+        /* 구조적 가상 클래스 선택자 : 요소의 구조와 위치에 따라 스타일을 적용 */
+        li:first-child{
+            color: red;
+            font-weight: bold;
+        }
+        li:last-child{
+            color: green;
+            font-weight: bold;
+        }
+        /* n번째 자식 요소를 선택*/
+        p:nth-child(5){
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>test1</li>
+        <li>test2</li>
+        <li>test3</li>
+        <li>test4</li>
+        <li>test5</li>
+    </ul>
+
+    <p>태그 1번</p>
+    <p>태그 2번</p>
+    <p>태그 3번</p>
+    <p>태그 4번</p>
+    <p>태그 5번</p>
+</body>
+</html>
