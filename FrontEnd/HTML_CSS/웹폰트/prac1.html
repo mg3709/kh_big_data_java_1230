@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    #container{
+        width: 304px;
+        height: 390px;
+    }
+    button{
+        height: 44px;
+        width: 228px;
+        margin: 24px;
+        font-family: 'Roboto', cursive;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    input{
+        width: 228px;
+        height: 44px;
+        border: 1px solid transparent;
+    }
+    button[type = "submit"]{
+        height: 44px;
+        background-color: black;
+        color: white;
+        font-family: 'Roboto',cursive;
+        font-size: 14px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        margin-left: 50px;
+    }
+    button[type = "submit"]:active{
+        background-color: #ccc;
+        color: red;
+    }
+    i{
+        margin: 10px;
+    }
+    p{
+        font-family: 'Roboto',cursive;
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form action="#" id="login">
+    
+    <fieldset id = "container">
+        <button type="button">
+            <i class="fa-brands fa-google"></i>Log in with Google
+        </button>
+
+        <p>or</p>
+
+    <label for="username">
+        <input type="text" id="username" name="username" placeholder="Username" >
+    </label>
+
+    <label for="password">
+        <input type="password" id="password" name="password" placeholder="Password" >
+    </label>
+
+    <button type="submit">
+        LOGIN
+    </button>
+    
+    <a href="#">Forgot your password?</p>
+
+    </fieldset>
+
+    
+
+  </form>
+
+</body>
+
+</html>
