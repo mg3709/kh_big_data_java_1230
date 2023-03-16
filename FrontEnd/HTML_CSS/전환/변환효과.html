@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>변환효과</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 1s .3s linear;
+        }
+        div:hover{
+            /* translate(x,y) : 요소를 현재 위치에서 x축과 y 축 만큼 움직인다 */
+            /* transform: translate(100px, 200px); */
+
+            /* scale(x, y) : 요소를 x축과 y축만큼 확대 또는 축소됩니다*/
+            transform: scale(-2,-2);
+
+            /* skew(xdeg, ydeg) : 요소를 x축과 y축으로 xdeg ydeg(각동) 만큼 기울입니다 */
+            /* transform: skew(30deg, 30deg); */
+
+            /* ratote(deg) : 요소를 deg(각도) 만큼 회전합니다 */
+            /* transform: rotate(30deg); */
+        }
+    </style>
+</head>
+<body>
+    <!-- 좌표 이동 하기 -->
+    <div></div>
+</body>
+</html>

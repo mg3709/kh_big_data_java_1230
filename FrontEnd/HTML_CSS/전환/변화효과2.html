@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            display: inline-block;
+            margin: 20px;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box:hover{
+            /* transfotm-origin : ratate 함수로 요소를 회전시킬때 회전시키는 기준점을 바꿉니다 */
+            /* 오른쪽으로 30도 회전 */
+            transform: rotate(30deg);
+            /* 왼쪽 위 모서리 기준점 지정 */
+            transform-origin: right bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>
