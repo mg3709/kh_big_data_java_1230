@@ -1,0 +1,56 @@
+body{
+    background-image: url(/images2/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#container{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.menu:nth-child(1){
+    background-image: url(/images2/hero1.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+.menu:nth-child(2){
+    background-image: url(/images2/hero4.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+.menu:nth-child(3){
+    background-image: url(/images2/hero4.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+.menu:nth-child(4){
+    background-image: url(/images2/hero4.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+.menu:nth-child(5){
+    background-image: url(/images2/hero4.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+.menu:nth-child(6){
+    background-image: url(/images2/hero4.png);
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+
