@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container{
+            width: auto;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 94px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 10px;
+            grid-template-areas: 
+            "box1 box2 box2 box3 box3"
+            "box4 box2 box2 box5 box5"
+            "box6 box7 box8 box9 box10";
+        }
+        .box{
+            color: white;
+            background-color: orange;
+        }
+        .box:nth-child(2n){
+            background-color: rgb(240, 199, 123);
+        }
+        #box1{
+            grid-area: box1;
+        }
+        #box2{
+            grid-area: box2;
+        }
+        #box3{
+            grid-area: box3;
+        }
+        #box4{
+            grid-area: box4;
+        }
+        #box5{
+            grid-area: box5;
+        }
+        #box6{
+            grid-area: box6;
+        }
+        #box7{
+            grid-area: box7;
+        }
+        #box8{
+            grid-area: box8;
+        }
+        #box9{
+            grid-area: box9;
+        }
+        #box10{
+            grid-area: box10;
+        }
+        @media (max-width:500px){
+            #container{
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(5, 100px);
+            }
+            #box3, #box5{
+                grid-column: unset;
+            }
+            #box10{
+                grid-column: 1/4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <div class="box" id = "box1">1</div>
+        <div class="box" id = "box2">2</div>
+        <div class="box" id = "box3">3</div>
+        <div class="box" id = "box4">4</div>
+        <div class="box" id = "box5">5</div>
+        <div class="box" id = "box6">6</div>
+        <div class="box" id = "box7">7</div>
+        <div class="box" id = "box8">8</div>
+        <div class="box" id = "box9">9</div>
+        <div class="box" id = "box10">10</div>
+    </div>
+</body>
+</html>
