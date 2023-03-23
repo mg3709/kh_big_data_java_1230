@@ -1,127 +1,170 @@
-body{
-    background-image: url(/images/bg5.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+*{
+    margin: 0;
+    padding: 0;
 }
-header{
+svg{
+    color: #ccc;
+}
+.line{
     width: 100%;
-    height: 100px;
+    height: 4px;
+    background-color: greenyellow;
+}
+#top-container{
     display: flex;
-}
-.logo{
-    width: 30%;
-    background-size: 60%;
-    background-repeat: no-repeat;
-    color: white;
-}
-.title{
-    padding: 30px;
-    width: 70%;
-    color: white;
-    font-size: 20px;
-}
-nav{
     width: 100%;
-    height: 50px;
-    background-color: #ccc;
-    display: flex;
-    justify-content: space-around;
+    height: 40px;
+    justify-content: end;
     align-items: center;
-    border: 2px solid white;
-    border-radius: 10px
-}
-.menu{
-    width: 100px;
+    gap: 20px;
+    border: 1px solid #e4e1e1;
 }
 a{
     text-decoration: none;
-    color: black;
+    color: rgb(102, 101, 101);
+    font-size: 12px;
+    font-weight: bold;
 }
 a:hover{
-    font-weight: bold;
-    color: red;
+    color: black;
 }
-#main-container{
+#title-container{
+    width: 100%;
+    height: 70px;
     display: flex;
+    justify-content: center;
+    gap: 20px;
 }
-section{
-    width: 70%;
-    height: 600px;
-    margin: 5px;
+.logo{
+    width: 150px;
+    background-image: url(/images/Melon_logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.search{
+    position: relative;
+    top: 10px;
+}
+.search > input{
+    width: 280px;
+    height: 30px;
+    border-color: greenyellow;
+    border-radius: 50px;
+}
+.realtime{
+    position: relative;
+    top: 10px;
+}
+.navbar{
+    width: 100%;
+    height: 50px;
     display: flex;
-    flex-flow: column;
-    gap: 60px;
     justify-content: center;
     align-items: center;
 }
-article{
-    width: 80%;
-    height: 150px;
-    border-radius: 10px;
-    color: white;
-}
-article ul{
+.navbar ul{
+    display: flex;
     list-style: none;
+    gap: 10px;
+}
+.navbar ul li{
+    display: flex;
+}
+.navbar ul li a{
+    font-size: 16px;
+    font-weight: bold;
+}
+.navbar ul li a:hover{
+    color: greenyellow;
+}
+.sidebar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border: 1px solid #ccc;
+    justify-content: space-around;
+    align-items: center;
+}
+.sidebar ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    position: relative;
+    right: 200px;
+}
+.sidebar ul li{
+    display: flex;
+}
+.sidebar ul li a{
+    font-size: 14px;
+}
+.time-select{
+    width: 100%;
+    height: 150px;
+}
+p{
+    font-size: 24px;
+    padding: 10px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    font-weight: bold;
+}
+.time-select > label{
+    font-size: 24px;
+    padding: 10px;
+    position: relative;
+    left: 800px;
+    top: 10px;
+}
+option{
+    size: 100px;
+    color: green;
+}
+select{
+    color: green;
+    border: 0px;
+    position: relative;
+    left: 800px;
+    top: 10px;
+    font-size: 24px;
+}
+.chart-menu{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+#rank-container{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.rank{
+    width: 100%;
+    height: 80px;
+    display: flex;
+}
+.rank > input{
+    position: relative;
+    bottom: 30px;
+}
+span{
+    position: relative;
+    left: 20px;
+    width: 400px;
 }
 img{
-    position: relative;
-    bottom: 25px;
-    width: 400px;
-    height: 190px;
-    z-index: 5;
-}
-li .caption{
-    position: relative;
-    width: 400px;
-    height: 190px;
-    right: 200px;
-    bottom: 240px;
-    background-color: rgba(138, 135, 135, 0.6);
-    opacity: 0;
-    transition: .8s .2s ease-in-out;
-    z-index: 10;
-}
-li:hover .caption{
-    opacity: 1;
-    transform: translateX(200px);
-}
-aside{
-    margin: 10px;
-    width: 30%;
-    height: 600px;
-    border-radius: 10px;
-    color: white;
-    border: 1px solid white;
-}
-aside ul{
-    padding: 10px;
-    height: 100%;
-    display: flex;
-    flex-flow: nowrap column;
-    justify-content: center;
-    align-items: center;
-}
-aside ul li{
-    width: 100%;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-aside ul li a{
-    text-decoration: none;
-    font-size: 15px;
-    color: white;
-}
-ul li a{
-    position: relative;
-    bottom: 15px;
+    width: 70px;
+    height: 60px;
 }
 footer{
-    width: 100%;
-    height: 200px;
-    margin: 5px;
-    border: 1px solid white;
-    border-radius: 10px;
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
