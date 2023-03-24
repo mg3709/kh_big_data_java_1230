@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        h2{
+            width: 400px;
+            height: auto;
+            text-align: center;
+            border: 1px dotted black;
+            border-radius: 10px;
+        }
+        .menu{
+            width: 400px;
+            height: 300px;
+            box-shadow: 1px 1px 5px black;
+            border-radius: 10px;
+            background-image: url("/images/ham2.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu p{
+            font-size: 4em;
+            font-weight: bold;
+            color: yellow;
+            text-shadow: 2px 2px 2px 5px black;
+        }
+    </style>
+</head>
+<body>
+    <h2>세트메뉴 가격</h2>
+    <div class="menu">
+        <p id = "value"></p>
+    </div>
+    <script src = "/조건문과반복문/상덕버거.js"></script>
+</body>
+</html>
