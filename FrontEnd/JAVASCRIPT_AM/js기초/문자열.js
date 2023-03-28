@@ -49,8 +49,10 @@ if(isAdult) console.log("당신은 성인입니다");
 else console.log("당신은 미성년자 입니다");
 
 //undefined : 변수와 상수를 선언하면 생성한 저장공간에 데이터를 할당하는 것이 일반적인데
-//            할당이 되지 않으면 임시적으로 undefined 상태를 만듬
+//            할당이 되지 않으면 임시적으로 undefined 상태를 만듬(값이 결정되지 않음)
 
 let empty;
 console.log(empty);
 console.log(empty2);
+
+// null : 변수나 상수를 선언하고 의도적으로 선언한 공간을 비워둘 때 사용합니다
