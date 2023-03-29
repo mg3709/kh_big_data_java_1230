@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 400px;
+            height: 400px;
+            background-color: royalblue;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            margin: 50px auto; /* 좌우 중간 정렬 */
+        }
+        h1{
+            color: white;
+            font-weight: bold;
+        }
+        .box{
+            font-weight: bold;
+            color: red;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <h1>학원수료일</h1>
+        <p><span class = "box" id = "result"></span>일 남았습니다.</p>
+    </div>
+    <script src = "/객체/학원수료일.js"></script>
+</body>
+</html>
