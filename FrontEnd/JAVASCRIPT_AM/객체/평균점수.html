@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-flow: column wrap;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        input{
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>점수 입력</h2>
+    <div class = "container">
     <label for="score1">성적</label>
     <input type="number" id = "score1">
 
@@ -21,7 +33,9 @@
     <label for="score5">성적</label>
     <input type="number" id = "score5">
 
-    <button onclick="cal()">평균 구하기</button>
+    </div>
+    
+    <button onclick="cal()" class = "btn">평균 구하기</button>
 
     <p id = "result"></p>
 
