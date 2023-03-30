@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name = "frm">
+        <input type="text" name = "id">
+        <input type="password" name = "pwd">
+        <input type="text" name = "desc">
+    </form>
+    <button onclick="inputCall()">입력 호출</button>
+
+    <form>
+        <label><input type="checkbox" value = "apple">사과</label>
+        <label><input type="checkbox" value = "banana">바나나</label>
+        <label><input type="checkbox" value = "orange">오렌지</label>
+        <label><input type="checkbox" value = "melon">멜론</label>
+    </form>
+
+    <form>
+        <label><input type="radio" name = "fruits" value = "apple">사과</label>
+        <label><input type="radio" name = "fruits" value = "banana">바나나</label>
+        <label><input type="radio" name = "fruits" value = "orange">오렌지</label>
+        <label><input type="radio" name = "fruits" value = "melon">멜론</label>
+    </form>
+
+    <form>
+        <select name="opt">
+            <option value="apple">사과</option>
+            <option value="banana">바나나</option>
+            <option value="orange">오렌지</option>
+            <option value="melon">멜론</option>
+        </select>
+    </form>
+    
+    <form name = "frs">
+        <input type="file" name = "upload">
+    </form>
+    <button onclick = "upload()">파일 업로드</button>
+    <script src = "./폼조작.js"></script>
+</body>
+</html>
