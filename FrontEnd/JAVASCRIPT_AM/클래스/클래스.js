@@ -84,3 +84,5 @@ console.log(myTruck.getTowingCapacity()); // 출력 결과: 10000
 myTruck.accelerate(20); // 출력 결과: "The red Kia Sorento is now going 20 km/h."
 myTruck.break(5); // 출력 결과: "The red Kia Sorento is now going 15 km/h."
 console.log(Truck.getNumberOfWheels()); // 출력 결과: 6
+
+
