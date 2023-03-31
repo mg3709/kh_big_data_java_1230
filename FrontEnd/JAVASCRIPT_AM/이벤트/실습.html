@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            width: 500px;
+            margin: 10px auto;
+            padding: 0;
+            display: flex;
+            gap: 5px;
+        }
+        ul li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .green{
+            width: 150px;
+            height: 30px;
+            background-color: green;
+        }
+        .orange{
+            width: 150px;
+            height: 30px;
+            background-color: orange;
+        }
+        .purple{
+            width: 150px;
+            height: 30px;
+            background-color: purple;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #box{
+            margin: 50px auto;
+            background-color: orange;
+            width: 450px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px black;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class = "green"><a href="#" onclick="alert('버튼을 클릭했습니다')" onkeypress="change('green')">green</a></li>
+        <li class = "orange"><a href="#" onclick="alert('버튼을 클릭했습니다')" onkeypress="change('orange')">orange</a></li>
+        <li class = "purple"><a href="#" onclick="alert('버튼을 클릭했습니다')" onkeypress="change('purple')">purple</a></li>
+    </ul>
+
+    <div id = "box"></div>
+    <script src = "실습.js"></script>
+</body>
+</html>
