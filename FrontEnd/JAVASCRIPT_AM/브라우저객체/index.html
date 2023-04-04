@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>브라우저 객체 모델</title>
+    <style>
+        /* 웹 브라우저에 스크롤바를 생성시키기 위해서 너비와 높이를 크게 잡음 */
+        body{
+            width: 2500px;
+            height: 5000px;
+        }
+        /* 뷰포트에 고정 */
+        /* button{
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        } */
+    </style>
+</head>
+<body>
+    <button onclick="sTo()">scrollTo(100, 200)</button>
+    <button onclick="sBy()">scrollBy(100, 200)</button>
+    <button onclick="printInfo()">window 객체 속성 확인</button>
+    <button onclick="popup()">팝업</button>
+    <script src = "script.js"></script>
+</body>
+</html>
