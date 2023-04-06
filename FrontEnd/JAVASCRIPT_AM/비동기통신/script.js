@@ -1,7 +1,7 @@
 //객체 생성
 const xhr = new XMLHttpRequest();
 xhr.open("POST", "URL 경로");//IP주소, PORT 번호, 백앤드가 수신할 컨트롤러
-xhr.setRequestHeader("contents-type", "application/json");
+xhr.setRequestHeader("content-type", "application/json");
 
 const data = {
     id:100,
