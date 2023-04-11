@@ -1,43 +1,54 @@
+import { Fragment } from 'react';
 import './App.css';
+// import Section from "./컴포넌트합성";
+// import MyCompoment from './MyCompoment';
+// import Person from './Person';
+import Say from './Say';
+// import Clock from './Clock';
 
-function App() {
-  const name = "리액트";
-  // 리액트에서 DOM 요소에 스타일을 적용할 때는 문자열 형태가 아닌 객체 형태로 넣어야함
-  // 스타일 이름 중에서 background-color 처럼 하이폰이 포함되어 있으면 카멜 표기법으로 변경해야 합니다
 
-  const style = {
-    backgroundColor:"#222",
-    color:"royalBlue",
-    fontSize:"2em"
-  };
+// 컴포넌트는 항상 대문자로 시작하고, 반환값으로 UI요소를 반환함
+// function WelcomeProps(dd){
+//   return (
+//   <>
+//     <h1>Hello, {dd.age}</h1>
+//     <p>안녕하세요. {dd.name}님.</p>
+//     <p>화창한 봄날을 맞이하여 아래와 같이 행사를 진행 하고자 합니다</p>
+//     <p>오셔서 자리를 빛내 주시기 바랍니다.</p>
+//   </>
+//   );
+// }
 
-  const member = {
-    name:"안유진",
-    job:"개발자",
-    addr:"경기도 수원시",
-    gender:"여성"
-  };
+function App() { 
+  // 화살표 함수로도 선언 가능
+  // const App = () => {
 
-  function getGeeting(user){
-    return (user) ? (<h1>환영합니다 {member.name}</h1>) : (<h1>환영합니다 방문자님</h1>);
-  }
+  // let insideTag = "운동하기";
 
-  //다항연산자와 AND연산자 사용가능
-  // 다항연산자를 사용해서 참인 조건과 거짓인 조건에 대해 렌더링
-  // AND 연산자를 이용한 조건부 렌더링
+  // const personData = {
+  //   name:"곰돌이사육사",
+  //   age:18,
+  //   gender:"남성"
+  // };
+
   return (
-    //class 키워드는 JSX 문법에서는 className 으로 변경해야함(카멜표기법)
-    <div className="App">
-      {/* {name === "리액트" ? (<h1>리액트 입니다</h1>) : (<h1>리액트가 아닙니다</h1>)} */}
-      {name === "리액트" && <h1 style={style}>리액트 화면을 갱신합니다....</h1> }
+    <>
+      {/* <WelcomeProps name="곰돌이사육사" age="20"/>
+      <WelcomeProps name="아이브" age="21"/>
+      <WelcomeProps name="르세라핌" age="21"/> */}
 
-      <p className="title-name">안녕하세요. 저는 {member.name} 입니다</p>
-      <p className="title-name">직업은 {member.job} 입니다</p>
-      <p className="title-name">주소는 {member.addr} 입니다</p>
-      <p className="title-name">성별은 {member.gender} 입니다</p>
+      {/* <Section title="오늘의 날씨" content="오늘은 흐리고 돌풍이 예상됩니다."/>
+      <Section title="오늘의 스포츠" content="LG vs 두산 경기가 잠실에서 열립니다"/> */}
 
-      <div>{getGeeting(true)}</div>
-    </div>
+      {/* <MyCompoment name="곰돌이사육사">{insideTag}</MyCompoment> */}
+
+      {/* <Person {...personData}/> */}
+
+      <Say/>
+
+      {/* <Clock/> */}
+
+    </>
   );
 }
 
