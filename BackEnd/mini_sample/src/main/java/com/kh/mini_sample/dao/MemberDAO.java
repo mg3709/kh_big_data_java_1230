@@ -39,7 +39,7 @@ public class MemberDAO {
             String sql = "SELECT * FROM T_MEMBER WHERE ID = " + "'" + id + "'";
             rs = stmt.executeQuery(sql);
 
-            while(rs.next()) { // 읽은 데이타가 있으면 true
+            while(rs.next()) { // 읽을 데이타가 있으면 true
                 String sqlId = rs.getString("ID"); // 쿼리문 수행 결과에서 ID값을 가져 옴
                 String sqlPwd = rs.getString("PWD");
                 System.out.println("ID : " + sqlId);
